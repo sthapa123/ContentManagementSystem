@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using WebCMS.Entities;
 using WebCMS.Entities.Models.Authentication;
 using System.Data.Entity;
-using System.Linq;
 
 namespace WebCMS.Services.Authentication
 {
@@ -83,13 +82,30 @@ namespace WebCMS.Services.Authentication
 
             foreach(var role in roleList)
             {
-                var matchedRole = systemRoles.FirstOrDefault(x => x.RoleName.Equals(role, StringComparison.OrdinalIgnoreCase))
+                var matchedRole = systemRoles.FirstOrDefault(x => x.RoleName.Equals(role, StringComparison.OrdinalIgnoreCase));
+
+                if (matchedRole == null) continue;
+
+                var userRole = new UserRole
+                {
+                    RoleId = matchedRole.RoleId,
+                    UserId = user.UserId
+                };
+
+                _context.UserRoles.Add(userRole);
             }
+
+            _context.SaveChanges();
         }
 
         public void Delete(int roleId)
         {
-            throw new NotImplementedException();
+            var role = _context.Roles.SingleOrDefault(x => x.RoleId == roleId);
+
+            if (role == null) return;
+
+            _context.Roles.Remove(role);
+            _context.SaveChanges();
         }
     }
 }
