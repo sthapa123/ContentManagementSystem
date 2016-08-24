@@ -30,7 +30,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -39,7 +46,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Authentication\Role.cs" />
+    <Compile Include="Models\Authentication\User.cs" />
+    <Compile Include="Models\Authentication\UserRole.cs" />
+    <Compile Include="Models\Authentication\UserToken.cs" />
+    <Compile Include="Models\Authentication\UserTokenType.cs" />
+    <Compile Include="Models\Copy\Copy.cs" />
+    <Compile Include="Models\Generic\Image.cs" />
+    <Compile Include="Models\Generic\ImageCategory.cs" />
+    <Compile Include="Models\Generic\PublicationState.cs" />
+    <Compile Include="Models\Initializers\DropAndMigrateDatabaseToLatestVersion.cs" />
+    <Compile Include="Models\Initializers\Environments\DefaultInitializer.cs" />
+    <Compile Include="Models\Initializers\MigrateDatabaseToLatestVersion.cs" />
+    <Compile Include="Models\Menu\Menu.cs" />
+    <Compile Include="Models\Menu\MenuItem.cs" />
+    <Compile Include="Models\Migrations\Configuration.cs" />
+    <Compile Include="Models\PageBuilder\Page.cs" />
+    <Compile Include="Models\PageBuilder\PageComponentType.cs" />
+    <Compile Include="Models\PageBuilder\PageComponentTypeCategory.cs" />
+    <Compile Include="Models\PageBuilder\PageRole.cs" />
+    <Compile Include="Models\PageBuilder\PageSection.cs" />
+    <Compile Include="Models\PageBuilder\PageSectionBackgroundType.cs" />
+    <Compile Include="Models\PageBuilder\PageSectionHeight.cs" />
+    <Compile Include="Models\PageBuilder\PageSectionType.cs" />
+    <Compile Include="Models\PageBuilder\PageSectionTypeCategory.cs" />
+    <Compile Include="Models\Posts\Post.cs" />
+    <Compile Include="Models\Posts\PostCategory.cs" />
+    <Compile Include="Models\Posts\PostComment.cs" />
+    <Compile Include="Models\Posts\PostImage.cs" />
+    <Compile Include="Models\Posts\PostImageType.cs" />
+    <Compile Include="Models\Posts\PostRole.cs" />
+    <Compile Include="Models\Settings\Setting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebEntityModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
