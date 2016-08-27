@@ -10,7 +10,7 @@ namespace WebCMS.Entities.Models.Posts
     public class PostCategory
     {
         [Key]
-        public int PostCateogoryId { get; set; }
+        public int PostCategoryId { get; set; }
         [Required]
         public string PostCategoryName { get; set; }
         public virtual ICollection<Post> Posts { get; set; }

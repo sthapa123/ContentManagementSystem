@@ -17,6 +17,6 @@ namespace WebCMS.Entities.Models.Copy
         [Required]
         public DateTime DateAdded { get; set; }
         [Required]
-        public DateTime DateUpdate { get; set; }
+        public DateTime DateUpdated { get; set; }
     }
 }

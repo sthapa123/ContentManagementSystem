@@ -30,6 +30,7 @@ namespace WebCMS.Entities.Models.Posts
         public virtual PostCategory PostCategory { get; set; }
         [Required]
         public bool IsPublished { get; set; }
+        public virtual ICollection<PostImage> PostImages { get; set; }
         public virtual ICollection<PostComment> PostComments { get; set; }
         public virtual ICollection<PostRole> PostRoles { get; set; }
     }
